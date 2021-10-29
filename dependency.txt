@@ -1,1 +1,7 @@
-pip install pytse-client
+1.install pytse-client by this command:
+$ pip install pytse-client
+
+2. need install pymongo for mange mongodb database
+$ pip install pymongo
+
+3. run a mongodbs
