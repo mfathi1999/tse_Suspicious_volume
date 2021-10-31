@@ -9,5 +9,6 @@ def calcute_Suspicious_volume():
 
 
 if __name__ == "__main__":
-    download_symbols_data()
+    #download_symbols_data()
+    print("start calcute :)")
     calcute_Suspicious_volume()

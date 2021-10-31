@@ -43,7 +43,7 @@ def main():
                     avg = Average(month_volum_averages) #average_month of this day
                     
                     #add date if mashkok
-                    if avg <= float(rows[row_number][6]):
+                    if (2 * avg) <= float(rows[row_number][6]):
 
                         dbObject.addDate(path.split('.')[0],rows[row_number][0])
                     
