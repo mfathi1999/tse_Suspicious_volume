@@ -1,6 +1,3 @@
-from types import coroutine
-from typing import List
-from warnings import catch_warnings
 import pymongo
 from pymongo.message import insert
 
@@ -10,6 +7,9 @@ class DBManager:
         self.dbName = dbName
         self.col = colName
         
+    def set_Collection_name(self , colName):
+        self.col = colName
+
     def makeCollection(self):
         myclient = pymongo.MongoClient(self.url)
         mydb = myclient[self.dbName]
@@ -75,6 +75,19 @@ class DBManager:
 
         return mycol.find_one({"_id": id})
 
+    def find_all_numberOf_SusVolume(self):
+        myclient = pymongo.MongoClient(self.url)
+        mydb = myclient[self.dbName]
+        mycol = mydb[self.col]
+
+        # susVolume = mycol.find({},{"_id":0,"name":0 , "dates":0 ,"numberOf_SusVolume" : 1})
+        susVolume = mycol.find({},{"numberOf_SusVolume" : 1})
+        
+
+        myclient.close()
+        return susVolume
+
+
     def makeSymbol(self, symbolName):
         data = {"name" : symbolName , "dates" : [] , "numberOf_SusVolume" : 0}
         self.insert_data(data)
@@ -91,7 +104,7 @@ class DBManager:
         
 
 
-        
+    
 
 
 

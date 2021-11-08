@@ -3,7 +3,8 @@ import os
 from DatabaseManager import DBManager
 
 colName = "symbols"
-dbObject = DBManager("mongodb://mongoadmin:secret@127.0.0.1:27017/","myData","symbols")
+dbObject = DBManager("mongodb://mongoadmin:secret@127.0.0.1:27017/","myData",colName)
+
 
 
 def Average(lst):
@@ -25,11 +26,7 @@ def main():
             #print (row)
             rows.append(row)
         
-        if len(rows) < 31 : #delete this symbol from list
-            pass     
-
-        else: #calcute average volumn in month
-
+        if len(rows) >= 31 :  #calcute average volumn in month    
 
             #add Symbol to DB
             dbObject.makeSymbol(path.split('.')[0])
