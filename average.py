@@ -19,13 +19,11 @@ def main():
         file = open('./tickers_data/{}'.format(path))
         csvReader = csv.reader(file)
         
-        
-        
         rows=[]
         for row in csvReader:
-            #print (row)
             rows.append(row)
         
+
         if len(rows) >= 31 :  #calcute average volumn in month    
 
             #add Symbol to DB
@@ -39,7 +37,7 @@ def main():
                     
                     avg = Average(month_volum_averages) #average_month of this day
                     
-                    #add date if mashkok
+                    #add date if Suspicious
                     if (2 * avg) <= float(rows[row_number][6]):
 
                         dbObject.addDate(path.split('.')[0],rows[row_number][0])

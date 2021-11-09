@@ -4,16 +4,43 @@ from DatabaseManager import DBManager
 from FrequentPattern import ECLAT
 
 
+
+dbObject = DBManager("mongodb://mongoadmin:secret@127.0.0.1:27017/","myData","")
+dbObject.drop_all_F_collections(18)
+
+
+
+# dbObject.col = "F_3"
+
+# arr = ["غدیر","آگاس"]
+# print(dbObject.find_item_By_Name(arr))
+
 eclat = ECLAT()
-eclat.set_MinSupport(100)
 
-set1 = [1,2,3,4]
-set2 =  [3,4,5,6]
-set3 =  [3,4,7]
+eclat.Min_support = 30
+#eclat.cal_MinSupport()
+# print(eclat.Min_support)
+
+eclat.run_ECLAT(0)
 
 
 
-print(eclat.Intersection(set1,set2,set3))
+
+
+# eclat.intersection_set()
+
+
+
+
+# eclat.set_MinSupport(100)
+
+# set1 = [1,2,3,4]
+# set2 =  [3,4,5,6]
+# set3 =  [3,4,7]
+
+
+
+# print(eclat.Intersection(set1,set2,set3))
 # print (set(set1).intersection(set2,set3))
 
 # for i in range(3):
